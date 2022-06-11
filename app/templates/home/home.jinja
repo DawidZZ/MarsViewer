@@ -1,0 +1,20 @@
+{% extends "base.jinja" %}
+
+{% block scripts %} 
+  <script type="application/x-javascript" src="{{url_for('static', filename='scripts/script.js')}}" defer></script>
+{% endblock %}
+
+{% set main_panel = [ 
+  ('PRZEGLĄDAJ ZDJĘCIA', url_for("static", filename="images/leftPanel.jpg"), '/gallery/main'), 
+  ('PRZEGLĄDAJ SWOJĄ KOLEKCJĘ', url_for("static", filename="images/rightPanel.jpg"), '/gallery/favourite')
+] -%}
+
+{% block content %}
+  <div class="mainPanel">
+    {% for caption, url, href in main_panel %}
+    <div class="panel" style="background-image: url('{{url}}')">
+        <a href={{href}}>{{caption}}</a>
+    </div>
+    {% endfor %}
+  </div>
+{% endblock %}

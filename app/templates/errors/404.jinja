@@ -1,0 +1,18 @@
+{% extends "errors/base_error.jinja" %}
+
+{% block title %}
+    <title>Nie znaleziono</title>
+{% endblock %}
+
+{% block styles %}
+    <link rel="stylesheet" href="{{url_for('static', filename='styles/errors/404.css')}}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+{% endblock %}
+
+{% block content %}
+    <div class="container">
+        <h1>404</h1>
+        <h2>Chyba się zgubiłeś! 🛸</h2>
+        <a class="waves-effect waves-light btn-large" href='/'>HOME</a>
+    </div>
+{% endblock %}

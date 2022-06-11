@@ -1,0 +1,36 @@
+{% set navbar_items  = [
+  ('/auth/login', 'login', 'Zaloguj'),
+  ('/auth/register', 'register', 'Zarejestruj')
+] -%}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+  <link rel="stylesheet" href="{{ url_for('static', filename='styles/home.css') }}">
+  <title>Mars Viewer</title>
+</head>
+<body>
+  <nav>
+    <div class="nav-wrapper">
+      <a href="/" class="brand-logo center">MARS VIEWER</a>
+      <ul class="right hide-on-med-and-down">
+        {% for href, id, caption in navbar_items %}
+          <li>
+            <a href="{{href}}">{{caption}}</a>
+          </li>
+        {% endfor %}
+      </ul>
+    </div>
+  </nav>
+
+  {% block content %}
+  {% endblock %}
+
+  {% block scripts %}{% endblock %}
+  
+</body>
+</html>
