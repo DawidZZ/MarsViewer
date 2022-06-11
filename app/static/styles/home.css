@@ -4,6 +4,8 @@
 
 body {
     height: 100vh;
+    display: flex;
+    flex-flow: column;
 }
 
 nav {
@@ -36,7 +38,8 @@ nav {
     flex-grow: 2;
 }
 
-a {
+.panel a {
     user-select: none;
     color: white;
+    display: block;
 }

@@ -7,3 +7,5 @@ app = Flask(__name__)
 app.config.from_object(Config)
 
 app.register_blueprint(home_bp)
+
+from app.routes import error_routes
