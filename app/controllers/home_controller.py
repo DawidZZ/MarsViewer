@@ -1,2 +1,4 @@
-def home():
-    return "<h1> Hello poor student! </h1>"
+from flask import render_template
+
+def index():
+    return render_template('home/home.jinja')

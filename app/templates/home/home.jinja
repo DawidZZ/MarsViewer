@@ -1,0 +1,16 @@
+{% extends "base.jinja" %}
+
+{% set main_panel = [ 
+  ('PRZEGLĄDAJ ZDJĘCIA', url_for("static", filename="images/leftPanel.jpg")), 
+  ('PRZEGLĄDAJ SWOJĄ KOLEKCJĘ', url_for("static", filename="images/rightPanel.jpg"))
+] -%}
+
+{% block content %}
+  <div class="mainPanel">
+    {% for text, url in main_panel %}
+    <div class="panel" style="background-image: url('{{url}}')">
+        <a>{{text}}</a>
+    </div>
+    {% endfor %}
+  </div>
+{% endblock %}
