@@ -1,5 +1,4 @@
-from flask import render_template, send_file, url_for
-import os
+from flask import render_template, send_file
 
 def index():
     return render_template('home/home.jinja')

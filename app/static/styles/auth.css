@@ -1,0 +1,25 @@
+body {
+    height: 100vh;
+    background-color: rgb(197, 188, 188);
+}
+
+nav {
+    background-color: rgb(53, 51, 50);
+}
+
+button[type="submit"] {
+    background-color: rgb(102, 11, 11);
+}
+
+button[type="submit"]:hover {
+    background-color: rgb(150, 70, 70);
+}
+
+::placeholder {
+    color: rgb(59, 55, 55)
+}
+
+.authNav {
+    padding-bottom: 70px;
+    background-color: rgb(61, 60, 58);
+}
