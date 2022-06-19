@@ -1,0 +1,47 @@
+{% extends "base.jinja" %}
+
+{% block styles %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/auth.css') }}">
+{% endblock styles %}
+
+{% block content %}
+<div class="container col s8">
+  <div class="row">
+    <nav class="authNav">
+      <div class="nav-wrapper">
+        <div class="col s8">
+          <h3 class="brand-logo col s8">Zarejestruj się</h3>
+        </div>
+      </div>
+    </nav>
+
+  </div>
+  <form action="/" class="col s14">
+    <div class="row">
+      <div class="input-field hoverable col s6">
+        <i class="material-icons prefix">account_circle</i>
+        <input placeholder="Nazwa użytkownika" id="username" type="text" class="validate">
+      </div>
+      <div class="input-field hoverable col s6">
+        <i class="material-icons prefix">email</i>
+        <input placeholder="Email" id="email" type="email" class="validate">
+      </div>
+    </div>
+    <div class="row">
+      <div class="input-field hoverable col s6">
+        <i class="material-icons prefix">vpn_key</i>
+        <input placeholder="Hasło" id="password" type="password" class="validate">
+        
+      </div>
+      <div class="input-field hoverable col s6">
+        <i class="material-icons prefix">replay</i>
+        <input placeholder="Powtórz hasło" id="password2" type="password" class="validate">
+      </div>
+    </div>
+    <button type="submit" class="waves-effect waves-light btn right hoverable">Zarejestruj Się
+        <i class="large material-icons right">done</i>
+    </button>
+  </form>
+
+</div>
+{% endblock content %}
