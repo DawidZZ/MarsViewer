@@ -5,3 +5,4 @@ def index():
 
 def favicon():
     return send_file('static/favicon.ico')
+
