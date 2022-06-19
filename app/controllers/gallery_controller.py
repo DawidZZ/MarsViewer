@@ -1,16 +1,24 @@
+import re
 from flask import render_template, request
-from requests import get
+import requests
 
-response = get(
-    "https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos",
-    params={'sol': 2, 'api_key' : 'DEMO_KEY'}
-)
+API_KEY = "sa63K3JQBuY23fdtPM5Ub7JMFXyEilI8H6d72pMx"
 
-res_json = response.json()
-print(res_json["photos"])
+def fetch_photos(args):
+    res = requests.get(
+        f"https://api.nasa.gov/mars-photos/api/v1/rovers/{args['rover']}/photos",
+        params={'earth_date' : args['date'], 'camera' : args['camera'], 'api_key' : API_KEY}
+    )
+    return res.json()
 
 def main_page():
-    return render_template('home/gallery.jinja', images=res_json["photos"])
+    response = {"photos" : []}
+    if len(request.args) == 3:
+        response = fetch_photos(request.args)
+    return render_template('home/gallery.jinja', images=response["photos"])
 
 def user_collection():
-    return render_template('home/gallery.jinja', images=res_json["photos"])
+    response = {"photos" : []}
+    if len(request.args) == 3:
+        response = fetch_photos(request.args)
+    return render_template('home/gallery.jinja', images=response["photos"])
