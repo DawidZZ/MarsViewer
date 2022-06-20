@@ -7,11 +7,16 @@ nav {
     background-color: rgb(53, 51, 50);
 }
 
-button[type="submit"] {
+i input {
+    color: white;
+    cursor: pointer;
+}
+
+.submit-button {
     background-color: rgb(102, 11, 11);
 }
 
-button[type="submit"]:hover {
+.submit-button:hover {
     background-color: rgb(150, 70, 70);
 }
 
