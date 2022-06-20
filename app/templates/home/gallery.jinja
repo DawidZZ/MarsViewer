@@ -61,13 +61,15 @@
     {% if not images %}
         <h1 class="center-align grey-text">Niestety nie znaleziono żadnych zdjęć</h1>
     {% else %}
-        <div class="row">
-            <div class="col s12 cards-container" style="padding-left: 50px; padding-right: 50px">
+        <div class="row" style="width: 100%; margin: 0">
+            <div class="col s12 cards-container" style="padding-left: 50px; padding-right: 50px; width: 100%">
                 {% for image in images %}
-                    <div class="card hoverable"  style="border: solid black 1px;">
+                    <div class="card hoverable"  style="border: solid black 1px; box-sizing: content-box">
                         <div class="card-image">
-                            <img src="{{ image['img_src'] }}">
-                            <span class="card-title">{{ image['rover']['name'] }} : {{ image['camera']['name'] }}</span>
+                            <a href="{{ image['img_src'] }}">
+                                <img src="{{ image['img_src'] }}">
+                                <span class="card-title">{{ image['rover']['name'] }} : {{ image['camera']['name'] }}</span>
+                            </a>
                             <a class="btn-floating halfway-fab waves-effect waves-light red"><i class="material-icons">add</i></a>
                         </div>
                         <div class="card-content">
