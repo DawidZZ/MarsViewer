@@ -1,4 +1,3 @@
-import re
 from flask import render_template, request
 import requests
 
@@ -15,7 +14,7 @@ def main_page():
     response = {"photos" : []}
     if len(request.args) == 3:
         response = fetch_photos(request.args)
-    return render_template('home/gallery.jinja', images=response["photos"])
+    return render_template('home/gallery.jinja', images=response["photos"], req=request)
 
 def user_collection():
     response = {"photos" : []}
