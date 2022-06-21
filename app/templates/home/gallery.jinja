@@ -13,6 +13,7 @@
             var instances = M.FormSelect.init(elems);
         });
     </script>
+    <script src="{{url_for('static', filename='scripts/gallery.js')}}"></script>
 {% endblock scripts %}
 
 
@@ -63,7 +64,7 @@
         <div class="row" style="width: 100%; margin: 0">
             <div class="col s12 cards-container" style="padding-left: 50px; padding-right: 50px; width: 100%">
                 {% for image in images %}
-                    <div class="card hoverable"  style="border: solid black 1px; box-sizing: content-box">
+                    <div data-json="{{image}}" class="card hoverable"  style="border: solid black 1px; box-sizing: content-box">
                         <div class="card-image">
                             <a href="{{ image['img_src'] }}">
                                 <img src="{{ image['img_src'] }}">

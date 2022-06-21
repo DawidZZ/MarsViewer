@@ -8,10 +8,6 @@ body {
     flex-flow: column;
 }
 
-nav {
-    background-color: rgb(53, 51, 50);
-}
-
 .mainPanel {
     height: 100%;
     display: flex;
