@@ -1,11 +1,13 @@
-## Before starting the App make sure that all packages are installed!
-# It is reckommended to install packages in venv
+# Before starting the App make sure that all packages are installed and database is created!
+## It is reckommended to install packages in venv
+
+## Installing requirements
 
 > python -m venv venv
 > venv\Scripts\activate (windows)
 > pip install -r requirements.txt
 
-# Database needs to be created before starting the App
+# Creating database
 
 > python
 
