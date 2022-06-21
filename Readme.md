@@ -7,14 +7,14 @@
 > venv\Scripts\activate (windows)
 > pip install -r requirements.txt
 
-# Creating database
+## Creating database
 
 > python
 
 > from app import db
 > db.create_all()
 
-# Starting the app
+## Starting the app
 
 in the root directory:
 
