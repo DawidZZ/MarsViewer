@@ -18,6 +18,7 @@ build/
 docs/_build/
 .vscode
 node_modules/
+test.db
 
 # Coverage reports
 htmlcov/
