@@ -19,21 +19,39 @@
   <title>Mars Viewer</title>
 </head>
 <body>
-  <nav>
+  <nav style="background-color: rgb(53, 51, 50)">
     <div class="nav-wrapper">
       <a href="/" class="brand-logo center">MARS VIEWER</a>
       <ul class="right hide-on-med-and-down">
-        {% for href, id, caption in navbar_items %}
+        {% if current_user.is_authenticated %}
           <li>
-            <a href="{{href}}">{{caption}}</a>
-          </li>
-        {% endfor %}
+              <a href="/auth/logout/">Wyloguj</a>
+            </li>
+        {% else %}
+          {% for href, id, caption in navbar_items %}
+            <li>
+              <a href="{{href}}">{{caption}}</a>
+            </li>
+          {% endfor %}
+        {% endif %}
       </ul>
     </div>
   </nav>
 
+  {% with messages = get_flashed_messages(with_categories=true) %}
+      <!-- Categories: success (green), info (blue), warning (yellow), danger (red) -->
+      {% if messages %}
+        {% for category, message in messages %}
+          <div style="display: none" class="flashed-message" data-message="{{message}}" data-category="{{category}}"></div>
+        {% endfor %}
+      {% endif %}
+  {% endwith %}
+
   {% block content %}
   {% endblock content %}
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js" defer></script>
+  <script src="{{url_for('static', filename='scripts/base.js')}}"></script>
 
   {% block scripts %}
   {% endblock scripts%}

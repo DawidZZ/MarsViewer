@@ -1,0 +1,38 @@
+{% extends "base.jinja" %}
+
+{% block styles %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/gallery.css') }}">
+{% endblock styles %}
+
+{% block content %}
+    <div class="row">
+        <nav style="background-color: rgb(61, 60, 58);">
+            <div class="nav-wrapper">
+                <div class="col s8">
+                <h3 class="brand-logo col s8">Kolekcja użytkownika: {{current_user.username}}</h3>
+                </div>
+            </div>
+        </nav>
+    </div>
+    {% if not images %}
+        <h1 class="center-align grey-text">Niestety nie znaleziono żadnych zdjęć</h1>
+    {% else %}
+        <div class="row" style="width: 100%; margin: 0">
+            <div class="col s12 cards-container" style="padding-left: 50px; padding-right: 50px; width: 100%">
+                {% for image in images %}
+                    <div class="card hoverable"  style="border: solid black 1px; box-sizing: content-box">
+                        <div class="card-image">
+                            <a href="{{ image['img_src'] }}">
+                                <img src="{{ image['img_src'] }}">
+                                <span class="card-title">{{ image['rover']['name'] }} : {{ image['camera']['name'] }}</span>
+                            </a>
+                        </div>
+                        <div class="card-content">
+                            <p>Sol: {{ image['sol'] }}, Ziemska data: {{ image['earth_date'] }}</p>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    {% endif %}
+{% endblock content %}

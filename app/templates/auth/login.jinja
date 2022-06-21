@@ -16,20 +16,19 @@
     </nav>
   </div>
 
-  <form action="/" class="col s14">
+  <form action="/auth/login" method="POST" class="col s14">
+    {{ form.hidden_tag() }}
     <div class="row">
         <div class="input-field hoverable col s6">
             <i class="material-icons prefix">email</i>
-            <input placeholder="Email" id="email" type="email" class="validate">
+            {{ form.email(size=30, class="validate", placeholder="Email") }}
         </div>
         <div class="input-field hoverable col s6">
             <i class="material-icons prefix">vpn_key</i>
-            <input placeholder="Hasło" id="password" type="password" class="validate">
+            {{ form.password(size=30, class="validate", placeholder="Hasło") }}
         </div>
     </div>
-    <button type="submit" class="waves-effect waves-light btn right hoverable">Zaloguj Się
-        <i class="large material-icons right">done</i>
-    </button>
+    {{ form.submit(class="waves-effect waves-light btn right hoverable submit-button white-text") }}
   </form>
 </div>
 {% endblock content%}
