@@ -1,6 +1,3 @@
-# Before starting the App make sure that all packages are installed and database is created!
-## It is reckommended to install packages in venv
-
 ## Installing requirements
 
 > python -m venv venv <br/>
